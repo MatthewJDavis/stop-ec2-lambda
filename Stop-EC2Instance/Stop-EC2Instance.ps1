@@ -15,7 +15,7 @@ try {
     
     foreach ($instance in $shutdownList) {
         Write-Host "Shutting down $($instance.InstanceId)"
-        #Stop-EC2Instance -InstanceId $instance.InstanceId
+        Stop-EC2Instance -InstanceId $instance.InstanceId
     }
 } catch {
     Write-Host $_.Exception.Message
