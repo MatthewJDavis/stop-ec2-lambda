@@ -18,3 +18,7 @@ steps:
 
 - script: dotnet --version
   displayName: 'Run a one-line script'
+
+- pwsh: |
+    New-AWSPowerShellLambdaPackage -ScriptPath $scriptPath -OutputPackage '/tmp/lambda.zip'
+  displayname: 'test build'
