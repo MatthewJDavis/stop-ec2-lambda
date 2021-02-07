@@ -10,7 +10,7 @@ param(
 
 # Install required version of AWSLamdaPSCore, used to build the lamdba
 $lambdaCoreVersion = '2.0.0.0'
-if ((Get-Module -Name AWSLambdaPSCore -ListAvailable).Version.ToString() -ne $AWSLambdaPSCore) { 
+if ((Get-Module -Name AWSLambdaPSCore -ListAvailable).Version -ne $AWSLambdaPSCore) { 
   Install-Module -Name 'AWSLambdaPSCore' -RequiredVersion $lambdaCoreVersion -Scope CurrentUser -Force
   Remove-Module -Name 'AWSLambdaPSCore' -Force
   Import-Module -Name 'AWSLambdaPSCore' -RequiredVersion $lambdaCoreVersion -Force
