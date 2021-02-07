@@ -16,5 +16,5 @@ steps:
     arguments: 'Default'
   displayName: 'Run psake Analyse'
 
-- script: ls
+- script: New-AWSPowerShellLambdaPackage -ScriptPath './Stop-EC2Instance/Stop-EC2Instance.ps1' -OutputPackage '/tmp/test.zip'
   displayName: 'Run a one-line script'
