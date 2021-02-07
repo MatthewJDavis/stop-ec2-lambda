@@ -20,5 +20,6 @@ steps:
   displayName: 'Run a one-line script'
 
 - pwsh: |
+    Import-Module -Name 'AWSLambdaPSCore'
     New-AWSPowerShellLambdaPackage -ScriptPath $scriptPath -OutputPackage '/tmp/lambda.zip'
   displayName: 'test build'
