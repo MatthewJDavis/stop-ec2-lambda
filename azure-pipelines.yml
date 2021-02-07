@@ -22,5 +22,5 @@ steps:
     arguments: 'Build'
   displayName: 'Run psake Build'
 
-- script: ls /tmp
+- script: ls
   displayName: 'Run a one-line script'
