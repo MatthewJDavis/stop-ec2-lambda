@@ -16,12 +16,8 @@ steps:
     arguments: 'Default'
   displayName: 'Run psake Analyse'
 
-- script: dotnet --version
-  displayName: 'Run a one-line script'
-
-- pwsh: |
-    $scriptPath = './Stop-EC2Instance/Stop-EC2Instance.ps1'
-    Install-Module -Name 'AWSLambdaPSCore' -RequiredVersion '2.0.0.0' -Scope CurrentUser -Force
-    Import-Module -Name 'AWSLambdaPSCore'
-    New-AWSPowerShellLambdaPackage -ScriptPath $scriptPath -OutputPackage '/tmp/lambda.zip'
-  displayName: 'test build'
+- task: PowerShell@2
+  inputs:
+    filePath: 'build/build.ps1'
+    arguments: 'Build'
+  displayName: 'Run psake Build'

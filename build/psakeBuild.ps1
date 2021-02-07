@@ -11,5 +11,6 @@ Task Analyse -description 'Analyse script with PSScriptAnalyzer' {
 }
 
 Task Build -description 'Build the lambda package' {
+  Import-Module -Name 'AWSLambdaPSCore'
   New-AWSPowerShellLambdaPackage -ScriptPath $scriptPath -OutputPackage '/tmp/lambda.zip'
 }
