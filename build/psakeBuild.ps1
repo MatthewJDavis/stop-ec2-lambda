@@ -11,5 +11,5 @@ Task Analyse -description 'Analyse script with PSScriptAnalyzer' {
 }
 
 Task Build -description 'Build the lambda package' {
-  New-AWSPowerShellLambdaPackage -ScriptPath $scriptPath -OutputPackage /tmp/lambda.zip
+  New-AWSPowerShellLambdaPackage -ScriptPath $scriptPath -OutputPackage '/tmp/lambda.zip'
 }
