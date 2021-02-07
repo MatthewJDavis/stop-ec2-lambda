@@ -9,3 +9,7 @@ Task Analyse -description 'Analyse script with PSScriptAnalyzer' {
     Write-Error -Message 'One or more Script Analyser errors/warnings were found'
   }
 }
+
+Task Build -description 'Build the lambda package' {
+  New-AWSPowerShellLambdaPackage -ScriptPath $scriptPath -OutputPackage /tmp/lambda.zip
+}

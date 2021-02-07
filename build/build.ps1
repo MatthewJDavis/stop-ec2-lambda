@@ -3,7 +3,7 @@
 
 [cmdletbinding()]
 param(
-  [Validateset('Default', 'Analyse', 'Test')]
+  [Validateset('Default', 'Analyse', 'Test', 'Build')]
   [string[]]
   $Task = 'default'
 )
