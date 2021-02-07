@@ -21,3 +21,12 @@ steps:
     filePath: 'build/build.ps1'
     arguments: 'Build'
   displayName: 'Run psake Build'
+
+- task: UniversalPackages@0
+  displayName: Universal Publish
+  inputs:
+    command: publish
+    publishDirectory: '$(Build.ArtifactStagingDirectory)'
+    vstsFeedPublish: 'Stop-EC2Instance/artifacts'
+    vstsFeedPackagePublish: 'stop-ec2instance.zip'
+    packagePublishDescription: 'AWS lamdba to stop ec2 instances.'

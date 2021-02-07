@@ -11,5 +11,5 @@ Task Analyse -description 'Analyse script with PSScriptAnalyzer' {
 }
 
 Task Build -description 'Build the lambda package' {
-  New-AWSPowerShellLambdaPackage -ScriptPath $scriptPath -OutputPackage "/$env:BUILD_ARTIFACTSTAGINGDIRECTORY/stopec2instance.zip"
+  New-AWSPowerShellLambdaPackage -ScriptPath $scriptPath -OutputPackage "/$env:BUILD_ARTIFACTSTAGINGDIRECTORY/stop-ec2instance.zip"
 }
