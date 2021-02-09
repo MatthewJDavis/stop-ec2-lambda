@@ -87,6 +87,11 @@ resource "aws_iam_role_policy_attachment" "lambda-attach" {
   policy_arn = aws_iam_policy.lambda-stop-ec2.arn
 }
 
+resource "aws_cloudwatch_log_group" "stop_group" {
+  name              = "/aws/lambda/${var.lambda_function_name}"
+  retention_in_days = 7
+}
+
 resource "aws_cloudwatch_event_rule" "daily_schedule" {
   name = var.lambda_function_name
   description = "Run lambda daily to stop up instances"
@@ -105,6 +110,10 @@ resource "aws_lambda_function" "stop_ec2_daily" {
   source_code_hash = filebase64sha256(var.filename)
   runtime = "dotnetcore3.1"
   timeout = 90
+  depends_on = [
+    aws_iam_role_policy_attachment.lambda-attach,
+    aws_cloudwatch_log_group.stop_group,
+  ]
 }
 
 resource "aws_cloudwatch_event_target" "daily_lambda" {
